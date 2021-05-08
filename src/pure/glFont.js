@@ -80,7 +80,15 @@ class TextGeometry extends BufferGeometry {
     
       var animWidth = animate.common.scaleW;
       var animHeight = animate.common.scaleH;
-      var auvs = vertices.guvs(glyphs, animWidth, animHeight, flipY);
+      const aOpt = { ...opt };
+      aOpt.font = aOpt.animate;
+      this.layoutAnimate = createLayout(aOpt);
+
+      var animateGlyphs = this.layoutAnimate .glyphs.filter(function(glyph) {
+        var bitmap = glyph.data;
+        return bitmap.width * bitmap.height > 0;
+      });
+      var auvs = vertices.guvs(animateGlyphs, animWidth, animHeight, flipY);
       this.setAttribute("auv", new BufferAttribute(auvs, 2));
     }
   

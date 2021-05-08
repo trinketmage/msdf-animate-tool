@@ -6,7 +6,7 @@ export const loader = new TextureLoader();
 
 const assets = {
   fonts: {
-    regular: loader.load("/assets/fonts/Love.png")
+    regular: loader.load("/assets/fonts/Love2.png")
   }
 };
 

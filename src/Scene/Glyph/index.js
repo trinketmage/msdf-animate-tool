@@ -173,8 +173,8 @@ export default class Glyph {
       }
     });
   }
-  render() {
-    // this.material.uniforms.time.value = t;
+  render(t) {
+    this.material.uniforms.time.value = t;
     // this.material.uniforms.mouse.value = pos;
     // this.text.rotation.y = 12;
     // console.log(this.text.rotation);
