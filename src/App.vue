@@ -11,6 +11,9 @@ import App from "@/Scene/app";
 import Glyphs from './components/Glyphs.vue'
 import Controls from './components/Controls.vue'
 
+import gsap from "gsap";
+import GSDevTools from "@/pure/gsap/GSDevTools";
+
 export default {
   name: 'App',
   components: {
@@ -23,6 +26,18 @@ export default {
       $el: document.querySelector("#scene")
     });
     this.app.handleResize();
+
+    const interpolate = {
+      x: 0
+    };
+    var tl = new gsap.timeline({
+      onUpdate: () => {
+        this.app.components.title.material.uniforms.mixRatio.value = interpolate.x;
+      }
+    })
+    tl.to(interpolate, {duration: 1, x: 1, ease: "linear"});
+    GSDevTools.create({keyboard: false});
+
   }
 }
 </script>

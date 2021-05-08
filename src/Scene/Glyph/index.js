@@ -99,12 +99,12 @@ export default class Glyph {
           value: animationType === "line" ? 0.25 : 0.025
         },
         map: new Uniform(textures[weight]),
-        alphaMap: new Uniform(),
         color: { type: "c", value: new Color(color) },
         resolution: { type: "c", value: new Vector2(0, 0) },
         edges: { type: "c", value: new Vector2(0, 0) },
         translate: { type: "c", value: new Vector2(0, 0) },
         fontSize: { type: "f", value: this.font.info.size * lineHeight },
+        mixRatio: new Uniform(1),
         total: {
           type: "f",
           value: this.total
