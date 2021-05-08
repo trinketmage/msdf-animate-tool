@@ -17,13 +17,14 @@ import fragmentShader from "@/Scene/Glyph/shaders/fragment.glsl";
 import createGeometry from "@/pure/glFont";
 
 import regular from "@/assets/fonts/Love.json";
-// import regular from "@/assets/fonts/Love-animate.json";
+import animate from "@/assets/fonts/Love-animate.json";
 
 // import Device from "@/pure/De
 import settings from "@/Scene/settings";
 
 const fonts = {
-  regular
+  regular,
+  animate
 };
 
 import assets from "@/Scene/Assets";
@@ -66,7 +67,8 @@ export default class Glyph {
 
     this.geometry = new createGeometry({
       text: caption,
-      font: this.font,
+      font: fonts.regular,
+      animate: fonts.animate,
       align,
       width,
       flipY: 0,

@@ -8,6 +8,7 @@ uniform vec3 color;
 uniform sampler2D map;
 uniform sampler2D alphaMap;
 varying float mixf;
+varying vec2 vAuv;
 varying vec2 vGuv;
 varying vec2 vUv;
 
@@ -23,12 +24,15 @@ void main() {
   float alpha = clamp(sigDist/fwidth(sigDist) + 0.5, 0.0, 1.0);
   
 
-  vec4 transitionTexel = texture2D( alphaMap, vUv );
+  vec3 mask = texture2D(map, vAuv).rgb;
+  float sigDist2 = median(mask.r, mask.g, mask.b) - 0.25;
+  float transitionTexel = clamp(sigDist2/fwidth(sigDist2) + 0.5, 0.0, 1.0);
+  // vec4 transitionTexel = texture2D( alphaMap, vUv );
   // float r = mixf * (1.0 + threshold * 2.0) - threshold;
 
-	float mixff = mixf * transitionTexel.r;
+	float mixff = mixf * transitionTexel;
 
 
-  gl_FragColor = vec4(color.rgb, alpha * (1.0 - step(vUv.y, mixf)) * vAlpha);
+  gl_FragColor = vec4(color.rgb, alpha * (1.0 - step(vUv.y, mixff)) * vAlpha);
   if (gl_FragColor.a < 0.0001) discard;
 }

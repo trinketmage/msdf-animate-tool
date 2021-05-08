@@ -1,4 +1,5 @@
 attribute float indices;
+attribute vec2 auv;
 attribute vec2 guv;
 attribute vec2 uv;
 attribute vec4 position;
@@ -10,6 +11,7 @@ uniform vec2 translate;
 uniform mat4 projectionMatrix;
 uniform mat4 modelViewMatrix;
 varying float mixf;
+varying vec2 vAuv;
 varying vec2 vGuv;
 varying vec2 vUv;
 
@@ -19,6 +21,7 @@ float exponentialOut(float t) {
 
 void main() {
   float vIdx = indices;
+  vAuv = auv;
   vGuv = guv;
   vUv = uv;
 

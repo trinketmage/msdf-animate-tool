@@ -53,7 +53,7 @@ class TextGeometry extends BufferGeometry {
     this.visibleGlyphs = glyphs;
   
     var positions = vertices.positions(glyphs);
-    var uvs = vertices.uvs(glyphs, texWidth, texHeight, flipY);
+    var uvs = vertices.uvs(glyphs);
     var guvs = vertices.guvs(glyphs, texWidth, texHeight, flipY);
     var idxs =
       opt.animationType === "line"
@@ -68,12 +68,21 @@ class TextGeometry extends BufferGeometry {
     if (opt.animationType === "line") {
       this.lineCount = vertices.lineCount(glyphs);
     }
-  
+
     this.setIndex(indices);
     this.setAttribute("indices", new BufferAttribute(idxs, 1));
     this.setAttribute("position", new BufferAttribute(positions, 2));
     this.setAttribute("uv", new BufferAttribute(uvs, 2));
     this.setAttribute("guv", new BufferAttribute(guvs, 2));
+
+    if (opt.animate) {
+      var animate = opt.animate;
+    
+      var animWidth = animate.common.scaleW;
+      var animHeight = animate.common.scaleH;
+      var auvs = vertices.guvs(glyphs, animWidth, animHeight, flipY);
+      this.setAttribute("auv", new BufferAttribute(auvs, 2));
+    }
   
     if (!opt.multipage && "page" in this.attributes) {
       this.removeAttribute("page");
