@@ -88,7 +88,7 @@ export default class MainScene {
   init() {
     this.components.title = new Glyph({
       scene: this.scene,
-      caption: "ºERVIEW",
+      caption: "LºE",
       fontSize: 270
     });
   }

@@ -9,17 +9,18 @@
 </template>
 
 <script>
+const OV = /(O)(V|v)/gi;
 export default {
   name: 'Controls',
   data() {
     return {
-      text: "ºERVIEW",
+      text: "LOVE",
       fontSize: 270
     }
   },
   watch: {
     text(newVal) {
-      this.$parent.app.components.title.updateCaption(newVal);
+      this.$parent.app.components.title.updateCaption(newVal.replace(OV, "º"));
     },
     fontSize(newVal) {
       this.$parent.app.components.title.updateSize(newVal);
@@ -44,7 +45,7 @@ input[type="text"] {
   display: block;
   border-radius: 48px;
   border: 1px solid #dadce0;
-  background-color: none;
+  background-color: transparent;
   outline: none;
   margin-right: 24px;
 }

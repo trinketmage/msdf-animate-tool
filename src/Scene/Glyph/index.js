@@ -17,6 +17,7 @@ import fragmentShader from "@/Scene/Glyph/shaders/fragment.glsl";
 import createGeometry from "@/pure/glFont";
 
 import regular from "@/assets/fonts/Love.json";
+// import regular from "@/assets/fonts/Love-animate.json";
 
 // import Device from "@/pure/De
 import settings from "@/Scene/settings";
