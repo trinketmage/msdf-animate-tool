@@ -4,6 +4,7 @@
       :key="glyph"
       v-for="glyph in glyphs"
       class="glyph"
+      @click="() => handleClick(glyph)"
     >
       {{glyph}}
     </div>
@@ -17,6 +18,11 @@ export default {
     return {
       glyphs: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789º"
     }
+  },
+  methods: {
+    handleClick(glyph) {
+      this.$root.text += glyph;
+    }
   }
 }
 </script>
@@ -24,7 +30,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .glyphs {
-  padding: 64px 60px 64px;
+  padding: 64px 60px #{64px + 51};
 }
 .glyph {
   display: inline-flex;

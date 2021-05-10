@@ -1,6 +1,6 @@
 <template>
   <div class="controls">
-    <input type="text" v-model="text" />
+    <input type="text" v-model="$root.text" />
     <div class="size">
       <span class="label">{{fontSize}}px</span>
       <input type="range" min="8" max="360" class="slider" v-model="fontSize">
@@ -14,12 +14,11 @@ export default {
   name: 'Controls',
   data() {
     return {
-      text: "LOVE",
       fontSize: 270
     }
   },
   watch: {
-    text(newVal) {
+    "$root.text"(newVal) {
       this.$parent.app.components.title.updateCaption(newVal.replace(OV, "º"));
     },
     fontSize(newVal) {

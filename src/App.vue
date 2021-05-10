@@ -1,15 +1,17 @@
 <template>
   <div id="app">
-    <Glyphs />
     <Controls />
+    <FileUpload />
+    <Glyphs />
   </div>
 </template>
 
 <script>
 import App from "@/Scene/app";
 
-import Glyphs from './components/Glyphs.vue'
 import Controls from './components/Controls.vue'
+import FileUpload from './components/FileUpload.vue'
+import Glyphs from './components/Glyphs.vue'
 
 import gsap from "gsap";
 import GSDevTools from "@/pure/gsap/GSDevTools";
@@ -17,11 +19,11 @@ import GSDevTools from "@/pure/gsap/GSDevTools";
 export default {
   name: 'App',
   components: {
-    Glyphs,
-    Controls
+    Controls,
+    FileUpload,
+    Glyphs
   },
   mounted() {
-
     this.app = new App({
       $el: document.querySelector("#scene")
     });
@@ -37,7 +39,6 @@ export default {
     })
     tl.to(interpolate, {duration: 1, x: 1, ease: "linear"});
     GSDevTools.create({keyboard: false});
-
   }
 }
 </script>
