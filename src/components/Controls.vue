@@ -10,6 +10,7 @@
 
 <script>
 const OV = /(O)(V|v)/gi;
+const RA = /(R)(A|a)/gi;
 export default {
   name: 'Controls',
   data() {
@@ -19,7 +20,7 @@ export default {
   },
   watch: {
     "$root.text"(newVal) {
-      this.$parent.app.components.title.updateCaption(newVal.replace(OV, "º"));
+      this.$parent.app.components.title.updateCaption(newVal.replace(OV, "º").replace(RA, "Ȑ"));
     },
     fontSize(newVal) {
       this.$parent.app.components.title.updateSize(newVal);
