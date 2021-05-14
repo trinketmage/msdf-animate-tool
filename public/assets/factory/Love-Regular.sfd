@@ -22,7 +22,7 @@ OS2Version: 3
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 0
 CreationTime: 1610544185
-ModificationTime: 1620397485
+ModificationTime: 1621000429
 PfmFamily: 81
 TTFWeight: 400
 TTFWidth: 5
@@ -348,7 +348,7 @@ NameList: AGL For New Fonts
 DisplaySize: -48
 AntiAlias: 1
 FitToEm: 0
-WinInfo: 0 29 11
+WinInfo: 319 29 11
 BeginPrivate: 9
 BlueValues 27 [-13 0 2800 2813 3208 3244]
 OtherBlues 21 [-538 -502 -130 -117]
@@ -361,7 +361,7 @@ StemSnapH 16 [18 22 80 85 89]
 StemSnapV 11 [18 81 135]
 EndPrivate
 AnchorClass2: "Anchor-0" "'mark' Mark Positioning in Latin lookup 3 subtable" "Anchor-1" "'mark' Mark Positioning in Latin lookup 3 subtable" "Anchor-2" "'mark' Mark Positioning in Latin lookup 3 subtable" "Anchor-3" "'mark' Mark Positioning in Latin lookup 3 subtable" "Anchor-4" "'mark' Mark Positioning in Latin lookup 4 subtable" "Anchor-5" "'mark' Mark Positioning in Latin lookup 4 subtable" "Anchor-6" "'mark' Mark Positioning in Latin lookup 4 subtable" "Anchor-7" "'mark' Mark Positioning in Latin lookup 4 subtable" "Anchor-8" "'mkmk' Mark to Mark in Latin lookup 5 subtable" "Anchor-9" "'mkmk' Mark to Mark in Latin lookup 6 subtable"
-BeginChars: 65592 440
+BeginChars: 65592 441
 
 StartChar: .notdef
 Encoding: 65536 -1 0
@@ -16807,6 +16807,73 @@ SplineSet
  2872 2056 2215 2724 1466 2724 c 0
  759 2724 211 2186 211 1501 c 0
  211 735 883 76 1662 76 c 0
+EndSplineSet
+EndChar
+
+StartChar: uni0210
+Encoding: 528 528 440
+Width: 4000
+Flags: W
+HStem: 0 21G<2567.5 2725 2725 2755 2469 3021> 1308 18<1973 3057 1973 3066 1967 3057> 1371 18<439 757 439 1241 941 941 941 1241 1241 1245> 2782 18<179 221.5 508.5 533 533 1241 2354 2360.5 2725 2752>
+VStem: 305 134<134 1371 1389 2666 2666 2670> 1841 139<1895 2273.5>
+LayerCount: 2
+Fore
+SplineSet
+2645 2670 m 2
+ 3711 117 l 2
+ 3757 5 3836 18 3850 18 c 1
+ 3850 0 l 1
+ 3465 0 l 1
+ 3465 18 l 1
+ 3483 18 3603 18 3563 117 c 2
+ 3066 1308 l 1
+ 1967 1308 l 1
+ 1929 1213 l 2
+ 1865 1047 1852 929 1852 839 c 0
+ 1852 771 1862 693 1880 617 c 0
+ 1950 320 2265 21 2673 21 c 0
+ 2837 21 2994 18 3102 220 c 1
+ 3120 220 l 1
+ 3021 0 l 1
+ 2725 0 l 2
+ 2410 0 2251 78 2003 281 c 0
+ 1826 424 1579 795 1469 936 c 0
+ 1192 1286 905 1371 757 1371 c 2
+ 439 1371 l 1
+ 439 134 l 2
+ 439 40 479 18 565 18 c 1
+ 565 0 l 1
+ 179 0 l 1
+ 179 18 l 1
+ 264 18 305 40 305 134 c 2
+ 305 2666 l 2
+ 305 2760 264 2782 179 2782 c 1
+ 179 2800 l 1
+ 1245 2800 l 2
+ 1649 2800 1980 2477 1980 2083 c 0
+ 1980 1689 1649 1371 1245 1371 c 2
+ 941 1371 l 1
+ 1098 1349 1402 1245 1595 1008 c 0
+ 1677 904 1768 760 1862 617 c 1
+ 1847 688 1834 754 1834 839 c 0
+ 1834 986 1871 1111 1919 1234 c 2
+ 2483 2701 l 1
+ 2439 2782 2367 2782 2354 2782 c 1
+ 2354 2800 l 1
+ 2752 2800 l 1
+ 2752 2782 l 1
+ 2698 2782 2606 2764 2645 2670 c 2
+439 2670 m 2
+ 439 1389 l 1
+ 1241 1389 l 2
+ 1577 1389 1841 1707 1841 2083 c 0
+ 1841 2464 1577 2782 1241 2782 c 2
+ 533 2782 l 2
+ 484 2782 439 2742 439 2670 c 2
+3057 1326 m 1
+ 2492 2679 l 1
+ 1973 1326 l 1
+ 3057 1326 l 1
 EndSplineSet
 EndChar
 EndChars

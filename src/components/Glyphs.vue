@@ -2,6 +2,14 @@
   <div class="glyphs">
     <div
       :key="glyph"
+      v-for="glyph in words"
+      class="glyph"
+      @click="() => handleClick(glyph, true)"
+    >
+      {{glyph}}
+    </div>
+    <div
+      :key="glyph"
       v-for="glyph in glyphs"
       class="glyph"
       @click="() => handleClick(glyph)"
@@ -16,12 +24,32 @@ export default {
   name: "Glyphs",
   data() {
     return {
-      glyphs: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789º"
+      glyphs: "ACDEGHIKLNOPRSTUVWXÉºȐ",
+      words: [
+        "PRÉSENTATION",
+        "INTERPRÉTATION",
+        "LA SENSATION",
+        "INGRÉDIENTS",
+        "PRÉPARATION",
+        "COCKTAIL",
+        "OVERVIEW",
+        "INTERPRETATION",
+        "THE SENSATION",
+        "INGREDIENTS",
+        "PREPARATION",
+        "RECIPE",
+        "NEXT",
+        "SUIVANT"
+      ]
     }
   },
   methods: {
-    handleClick(glyph) {
-      this.$root.text += glyph;
+    handleClick(glyph, clean = false) {
+      if (clean) {
+        this.$root.text = glyph;
+      } else {
+        this.$root.text += glyph;
+      }
     }
   }
 }
@@ -36,11 +64,13 @@ export default {
   display: inline-flex;
   border: 1px solid #dadce0;
   height: 41px;
-  width: 44px;
+  min-width: 44px;
   align-items: center;
   justify-content: center;
   margin-left: -1px;
   margin-top: -1px;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
   cursor: pointer;
   &:hover {
     background: rgba(32,33,36,.04);
