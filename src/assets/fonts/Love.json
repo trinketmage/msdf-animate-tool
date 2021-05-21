@@ -130,6 +130,20 @@
             "page": 0
         },
         {
+            "id": 50,
+            "index": 22,
+            "char": "2",
+            "width": 118,
+            "height": 194,
+            "xoffset": 7,
+            "yoffset": 45,
+            "xadvance": 134,
+            "chnl": 15,
+            "x": 658,
+            "y": 196,
+            "page": 0
+        },
+        {
             "id": 65,
             "index": 37,
             "char": "A",
@@ -139,8 +153,8 @@
             "yoffset": 46,
             "xadvance": 95,
             "chnl": 15,
-            "x": 658,
-            "y": 196,
+            "x": 892,
+            "y": 0,
             "page": 0
         },
         {
@@ -153,7 +167,7 @@
             "yoffset": 46,
             "xadvance": 146,
             "chnl": 15,
-            "x": 892,
+            "x": 975,
             "y": 0,
             "page": 0
         },
@@ -167,8 +181,8 @@
             "yoffset": 46,
             "xadvance": 91,
             "chnl": 15,
-            "x": 741,
-            "y": 196,
+            "x": 1105,
+            "y": 0,
             "page": 0
         },
         {
@@ -181,7 +195,7 @@
             "yoffset": 46,
             "xadvance": 100,
             "chnl": 15,
-            "x": 1022,
+            "x": 1180,
             "y": 0,
             "page": 0
         },
@@ -195,8 +209,8 @@
             "yoffset": 46,
             "xadvance": 50,
             "chnl": 15,
-            "x": 196,
-            "y": 388,
+            "x": 777,
+            "y": 196,
             "page": 0
         },
         {
@@ -209,7 +223,7 @@
             "yoffset": 46,
             "xadvance": 151,
             "chnl": 15,
-            "x": 1103,
+            "x": 1261,
             "y": 0,
             "page": 0
         },
@@ -223,7 +237,7 @@
             "yoffset": 46,
             "xadvance": 107,
             "chnl": 15,
-            "x": 1238,
+            "x": 1396,
             "y": 0,
             "page": 0
         },
@@ -237,7 +251,7 @@
             "yoffset": 46,
             "xadvance": 98,
             "chnl": 15,
-            "x": 1327,
+            "x": 1485,
             "y": 0,
             "page": 0
         },
@@ -251,7 +265,7 @@
             "yoffset": 46,
             "xadvance": 92,
             "chnl": 15,
-            "x": 1406,
+            "x": 1564,
             "y": 0,
             "page": 0
         },
@@ -265,7 +279,7 @@
             "yoffset": 46,
             "xadvance": 159,
             "chnl": 15,
-            "x": 1485,
+            "x": 1643,
             "y": 0,
             "page": 0
         },
@@ -279,7 +293,7 @@
             "yoffset": 46,
             "xadvance": 96,
             "chnl": 15,
-            "x": 1625,
+            "x": 1783,
             "y": 0,
             "page": 0
         },
@@ -293,7 +307,7 @@
             "yoffset": 46,
             "xadvance": 98,
             "chnl": 15,
-            "x": 1705,
+            "x": 1863,
             "y": 0,
             "page": 0
         },
@@ -307,8 +321,22 @@
             "yoffset": 46,
             "xadvance": 123,
             "chnl": 15,
-            "x": 1790,
-            "y": 0,
+            "x": 892,
+            "y": 194,
+            "page": 0
+        },
+        {
+            "id": 49,
+            "index": 21,
+            "char": "1",
+            "width": 30,
+            "height": 193,
+            "xoffset": 15,
+            "yoffset": 46,
+            "xadvance": 59,
+            "chnl": 15,
+            "x": 196,
+            "y": 388,
             "page": 0
         },
         {
@@ -321,8 +349,8 @@
             "yoffset": 235,
             "xadvance": 60,
             "chnl": 15,
-            "x": 816,
-            "y": 196,
+            "x": 253,
+            "y": 194,
             "page": 0
         }
     ],
@@ -354,6 +382,8 @@
             "É",
             "º",
             "Ȑ",
+            "1",
+            "2",
             " "
         ],
         "unicode": 1,
@@ -1277,6 +1307,21 @@
             "first": 201,
             "second": 84,
             "amount": 3
+        },
+        {
+            "first": 49,
+            "second": 50,
+            "amount": -3
+        },
+        {
+            "first": 50,
+            "second": 49,
+            "amount": 9
+        },
+        {
+            "first": 50,
+            "second": 50,
+            "amount": 1
         }
     ]
 }
