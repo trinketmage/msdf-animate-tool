@@ -14,7 +14,7 @@ import gsap from "gsap";
 
 import vertexShader from "@/Scene/Glyph/shaders/vertex.glsl";
 import fragmentShader from "@/Scene/Glyph/shaders/fragment.glsl";
-import createGeometry from "@/pure/glFont";
+import createGeometry from "./glFont";
 
 import regular from "@/assets/fonts/Love.json";
 import animate from "@/assets/fonts/Love-animate.json";
