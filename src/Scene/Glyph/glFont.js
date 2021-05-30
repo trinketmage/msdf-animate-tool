@@ -55,19 +55,16 @@ class TextGeometry extends BufferGeometry {
     var positions = vertices.positions(glyphs);
     var uvs = vertices.uvs(glyphs);
     var guvs = vertices.guvs(glyphs, texWidth, texHeight, flipY);
-    var idxs =
-      opt.animationType === "line"
-        ? vertices.lineIndices(glyphs)
-        : vertices.indices(glyphs);
+    var idxs = vertices.indices(glyphs);
     var indices = createIndices([], {
       clockwise: true,
       type: "uint16",
       count: glyphs.length
     });
   
-    if (opt.animationType === "line") {
-      this.lineCount = vertices.lineCount(glyphs);
-    }
+    // if (opt.animationType === "line") {
+    //   this.lineCount = vertices.lineCount(glyphs);
+    // }
 
     this.setIndex(indices);
     this.setAttribute("indices", new BufferAttribute(idxs, 1));

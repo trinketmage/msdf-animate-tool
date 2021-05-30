@@ -3,6 +3,7 @@
     <Controls />
     <FileUpload />
     <Glyphs />
+    <Timeline />
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import App from "@/Scene/app";
 import Controls from './components/Controls.vue'
 import FileUpload from './components/FileUpload.vue'
 import Glyphs from './components/Glyphs.vue'
+import Timeline from './components/Timeline.vue'
 
 import gsap from "gsap";
 import GSDevTools from "@/pure/gsap/GSDevTools";
@@ -21,7 +23,8 @@ export default {
   components: {
     Controls,
     FileUpload,
-    Glyphs
+    Glyphs,
+    Timeline
   },
   mounted() {
     this.app = new App({
@@ -29,16 +32,36 @@ export default {
     });
     this.app.handleResize();
 
-    const interpolate = {
+    this.interpolate = {
       x: 0
     };
-    var tl = new gsap.timeline({
+    this.tl = new gsap.timeline({
+      id: "Love",
       onUpdate: () => {
-        this.app.components.title.material.uniforms.mixRatio.value = interpolate.x;
+        this.app.components.title.material.uniforms.mixRatio.value = this.interpolate.x;
       }
     })
-    tl.to(interpolate, {duration: 1, x: 1, ease: "linear"});
-    GSDevTools.create({keyboard: false});
+    this.tween = gsap.to(this.interpolate, {duration: 1, x: 1, ease: "linear"});
+    this.tl.add(this.tween);
+    GSDevTools.create({keyboard: false, animation: this.tl});
+  },
+  methods: {
+    updateTween(duration) {
+    //   gsap.globalTimeline.pause();
+    //   gsap.globalTimeline.duration(0);
+    //   gsap.globalTimeline.progress(0);
+    //   gsap.globalTimeline.restart();
+    //   this.tl.kill();
+
+    // this.tl = new gsap.timeline({
+    //   onUpdate: () => {
+    //     this.app.components.title.material.uniforms.mixRatio.value = this.interpolate.x;
+    //   }
+    // })
+    // this.tween = gsap.fromTo(this.interpolate, {x: 0}, {duration, x: 1, ease: "linear"});
+    // this.tl.add(this.tween);
+      this.tl.duration(duration);
+    }
   }
 }
 </script>

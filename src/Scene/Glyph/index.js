@@ -1,13 +1,10 @@
 import {
   Vector2,
-  // Vector3,
   Mesh,
   Object3D,
   Uniform,
   Color,
   RawShaderMaterial,
-  // PlaneBufferGeometry,
-  DoubleSide
 } from "three";
 
 import gsap from "gsap";
@@ -47,7 +44,7 @@ export default class Glyph {
     color = 0x000000,
     alpha = 1,
     mobile = null,
-    animationType = "line"
+    animationType = "default"
   }) {
     // this.material = material;
     this.scene = scene;
@@ -79,10 +76,7 @@ export default class Glyph {
 
     // this.scale = 0.002125;
     this.scale = 1.0;
-    this.total =
-      animationType === "line"
-        ? this.geometry.lineCount + 1
-        : this.caption.replace(/(\r\n|\n|\r)/gm, "").length - 1;
+    this.total = this.caption.replace(/(\r\n|\n|\r)/gm, "").length - 1;
 
     this.interpolate = {
       x: 0
@@ -91,34 +85,22 @@ export default class Glyph {
     this.mdsf = {
       transparent: true,
       uniforms: {
-        vAlpha: { type: "f", value: alpha },
-        opacity: { type: "f", value: 1.0 },
-        time: { type: "f", value: 0 },
-        stagger: {
-          type: "f",
-          value: animationType === "line" ? 0.25 : 0.025
-        },
+        vAlpha: new Uniform(alpha),
+        opacity: new Uniform(1.0),
+        time: new Uniform(0.0),
+        stagger: new Uniform(0.0),
+        duration: new Uniform(1.0),
         map: new Uniform(textures[weight]),
         color: { type: "c", value: new Color(color) },
         resolution: { type: "c", value: new Vector2(0, 0) },
-        edges: { type: "c", value: new Vector2(0, 0) },
-        translate: { type: "c", value: new Vector2(0, 0) },
-        fontSize: { type: "f", value: this.font.info.size * lineHeight },
         mixRatio: new Uniform(1),
-        total: {
-          type: "f",
-          value: this.total
-        }
+        total: new Uniform(this.total)
       },
-      alphaTest: 0,
-      side: DoubleSide,
       vertexShader,
       fragmentShader,
       depthTest: false
     };
     this.material = new RawShaderMaterial(this.mdsf);
-    // console.log(this.geometry);
-    // this.geometry = new PlaneBufferGeometry(1 ,1 ,1);
 
     this.layout = this.geometry.layout;
     this.text = new Mesh(this.geometry, this.material);
@@ -141,7 +123,10 @@ export default class Glyph {
     this.geometry.update({
       text
     });
+    this.total = this.caption.replace(/(\r\n|\n|\r)/gm, "").length - 1;
+    this.material.uniforms.total.value = this.total;
     this.handleResize(settings.sizes);
+    
   }
   updateSize(fontSize) {
     this.fontSize = fontSize;
