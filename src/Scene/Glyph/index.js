@@ -86,9 +86,9 @@ export default class Glyph {
       uniforms: {
         opacity: new Uniform(1.0),
         time: new Uniform(0.0),
-        stagger: new Uniform(0.0),
+        stagger: new Uniform(0.15),
         direction: new Uniform(0.0),
-        duration: new Uniform(1.0),
+        duration: new Uniform(1.5),
         map: new Uniform(textures[weight]),
         color: { type: "c", value: new Color(color) },
         resolution: { type: "c", value: new Vector2(0, 0) },

@@ -16,8 +16,8 @@ export default {
   name: "Timeline",
   data() {
     return {
-      duration: 1,
-      stagger: 0,
+      duration: 1.5,
+      stagger: 0.15,
     };
   },
   watch: {
