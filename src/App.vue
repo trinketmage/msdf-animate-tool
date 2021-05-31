@@ -46,8 +46,11 @@ export default {
     GSDevTools.create({keyboard: false, animation: this.tl});
   },
   methods: {
-    updateTween(duration) {
-      this.tl.duration(duration);
+    updateTween() {
+      const extent = parseFloat(this.$root.duration) + parseFloat(this.$root.stagger) * this.app.components.title.total;
+      this.tl.duration(extent);
+      this.app.components.title.material.uniforms.stagger.value = this.$root.stagger;
+      this.app.components.title.material.uniforms.duration.value = this.$root.duration;
     }
   }
 }

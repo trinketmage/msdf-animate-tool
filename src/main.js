@@ -13,7 +13,9 @@ new Vue({
   render: h => h(App),
   data() {
     return {
-      text: "LOVE"
+      text: "LOVE",
+      stagger: 0.15,
+      duration: 1.5
     }
   }
 }).$mount('#app')

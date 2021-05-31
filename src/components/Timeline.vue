@@ -2,11 +2,11 @@
   <div class="timeline">
     <div class="fieldset">
       <label for="duration">Duration</label
-      ><input type="number" id="duration" min="0" step="0.1" v-model="duration" />
+      ><input type="number" id="duration" min="0" step="0.1" v-model="$root.duration" />
     </div>
     <div class="fieldset">
       <label for="stagger">Stagger</label
-      ><input type="number" id="stagger" min="0" step="0.01" v-model="stagger" />
+      ><input type="number" id="stagger" min="0" step="0.01" v-model="$root.stagger" />
     </div>
   </div>
 </template>
@@ -14,26 +14,12 @@
 <script>
 export default {
   name: "Timeline",
-  data() {
-    return {
-      duration: 1.5,
-      stagger: 0.15,
-    };
-  },
   watch: {
-    duration() {
-      this.updateTimeline();
+    '$root.duration'() {
+      this.$parent.updateTween();
     },
-    stagger() {
-      this.updateTimeline();
-    }
-  },
-  methods: {
-    updateTimeline() {
-      const extent = parseFloat(this.duration) + parseFloat(this.stagger) * this.$parent.app.components.title.total;
-      this.$parent.updateTween(extent);
-      this.$parent.app.components.title.material.uniforms.stagger.value = this.stagger;
-      this.$parent.app.components.title.material.uniforms.duration.value = this.duration;
+    '$root.stagger'() {
+      this.$parent.updateTween();
     }
   }
 };

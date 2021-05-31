@@ -21,6 +21,7 @@ export default {
   watch: {
     "$root.text"(newVal) {
       this.$parent.app.components.title.updateCaption(newVal.replace(OV, "º").replace(RA, "Ȑ"));
+      this.$parent.updateTween();
     },
     fontSize(newVal) {
       this.$parent.app.components.title.updateSize(newVal);
