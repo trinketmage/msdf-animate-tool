@@ -3,7 +3,6 @@
 precision highp float;
 
 uniform float opacity;
-uniform float vAlpha;
 uniform float mixRatio;
 uniform vec3 color;
 uniform sampler2D map;
@@ -28,6 +27,7 @@ void main() {
   
   vec3 mask = texture2D(map, vAuv).rgb;
   float r = (1.0 - lerp) * (1.0 + threshold * 2.0) - threshold;
+  
   float mixf=clamp(((1.0 - mask.r) - r)*(1.0/threshold), 0.0, 1.0);
 
   gl_FragColor = vec4(color.rgb, smoothstep(0.0, 0.1, mixf) * alpha);

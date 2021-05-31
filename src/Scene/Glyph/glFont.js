@@ -53,9 +53,12 @@ class TextGeometry extends BufferGeometry {
     this.visibleGlyphs = glyphs;
   
     var positions = vertices.positions(glyphs);
-    var uvs = vertices.uvs(glyphs);
+    var uvs = vertices.uvs(glyphs, texWidth, texHeight, flipY);
     var guvs = vertices.guvs(glyphs, texWidth, texHeight, flipY);
     var idxs = vertices.indices(glyphs);
+    var weights = vertices.weights(glyphs);
+
+    this.total = idxs[idxs.length - 1];
     var indices = createIndices([], {
       clockwise: true,
       type: "uint16",
@@ -67,7 +70,8 @@ class TextGeometry extends BufferGeometry {
     // }
 
     this.setIndex(indices);
-    this.setAttribute("indices", new BufferAttribute(idxs, 1));
+    this.setAttribute("index", new BufferAttribute(idxs, 1));
+    this.setAttribute("weight", new BufferAttribute(weights, 1));
     this.setAttribute("position", new BufferAttribute(positions, 2));
     this.setAttribute("uv", new BufferAttribute(uvs, 2));
     this.setAttribute("guv", new BufferAttribute(guvs, 2));

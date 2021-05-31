@@ -41,25 +41,12 @@ export default {
         this.app.components.title.material.uniforms.mixRatio.value = this.interpolate.x;
       }
     })
-    this.tween = gsap.to(this.interpolate, {duration: 1, x: 1, ease: "linear"});
+    this.tween = gsap.to(this.interpolate, {duration: 1, x: 1, ease: "none"});
     this.tl.add(this.tween);
     GSDevTools.create({keyboard: false, animation: this.tl});
   },
   methods: {
     updateTween(duration) {
-    //   gsap.globalTimeline.pause();
-    //   gsap.globalTimeline.duration(0);
-    //   gsap.globalTimeline.progress(0);
-    //   gsap.globalTimeline.restart();
-    //   this.tl.kill();
-
-    // this.tl = new gsap.timeline({
-    //   onUpdate: () => {
-    //     this.app.components.title.material.uniforms.mixRatio.value = this.interpolate.x;
-    //   }
-    // })
-    // this.tween = gsap.fromTo(this.interpolate, {x: 0}, {duration, x: 1, ease: "linear"});
-    // this.tl.add(this.tween);
       this.tl.duration(duration);
     }
   }

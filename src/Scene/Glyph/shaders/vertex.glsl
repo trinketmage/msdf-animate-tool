@@ -1,4 +1,5 @@
-attribute float indices;
+attribute float index;
+attribute float weight;
 attribute vec2 auv;
 attribute vec2 guv;
 attribute vec2 uv;
@@ -6,6 +7,7 @@ attribute vec4 position;
 uniform float mixRatio;
 uniform float total;
 uniform float duration;
+uniform float direction;
 uniform float stagger;
 uniform mat4 projectionMatrix;
 uniform mat4 modelViewMatrix;
@@ -16,27 +18,20 @@ varying vec2 vGuv;
 // varying vec2 vUv;
 
 void main() {
-  float vIdx = indices;
+  float vIdx = index;
   vAuv = auv;
   vGuv = guv;
   // vUv = uv;
 
-  float threshold = stagger * total;
-
-  float transitionTexel = (vIdx / total);
-
-
-
   float staggers = (total * stagger);
-  float maxDuration = duration + staggers;
+  float totalDuration = duration + weight * stagger;
+  
+  float maxDuration = totalDuration + staggers;
+  float space = totalDuration / maxDuration;
 
-  float space = duration / maxDuration;
-  // float relStagger = stagger / extent;
-
-  float offset = (vIdx * stagger) / maxDuration;
+  float offset = (mix(vIdx, (total - vIdx), direction) * stagger) / maxDuration;
 
 	lerp = smoothstep(offset, offset + space, mixRatio);
-	// lerp = smoothstep(0.0, 1.0, mixRatio);
   
   gl_Position = projectionMatrix * modelViewMatrix * position;
 }

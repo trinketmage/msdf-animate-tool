@@ -1,3 +1,5 @@
+export const ligatures = ["º", "Ȑ"];
+
 export const pages = function pages(glyphs) {
   var pages = new Float32Array(glyphs.length * 4 * 1);
   var i = 0;
@@ -104,13 +106,32 @@ export const positions = function positions(glyphs) {
 export const indices = function indices(glyphs) {
   var indices = new Float32Array(glyphs.length * 4);
   var i = 0;
-  glyphs.forEach(function(glyph, idx) {
-    indices[i++] = idx;
-    indices[i++] = idx;
-    indices[i++] = idx;
-    indices[i++] = idx;
+  var weightI = 0;
+  glyphs.forEach(function(glyph) {
+    indices[i++] = weightI;
+    indices[i++] = weightI;
+    indices[i++] = weightI;
+    indices[i++] = weightI;
+    
+    weightI += characterWeight(glyph.data.char) + 1;
   });
   return indices;
+};
+export const weights = function weights(glyphs) {
+  var indices = new Float32Array(glyphs.length * 4);
+  var i = 0;
+  glyphs.forEach(function(glyph) {
+    var weightI = characterWeight(glyph.data.char);
+    indices[i++] = weightI;
+    indices[i++] = weightI;
+    indices[i++] = weightI;
+    indices[i++] = weightI;
+  });
+  return indices;
+};
+
+export const characterWeight = function characterWeight(char) {
+  return (ligatures.indexOf(char) > -1) ? 1 : 0;
 };
 
 export const lineIndices = function indices(glyphs) {

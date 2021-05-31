@@ -42,7 +42,6 @@ export default class Glyph {
     position = new Vector2(0.0, 0.0),
     offset = new Vector2(0.0, 0.0),
     color = 0x000000,
-    alpha = 1,
     mobile = null,
     animationType = "default"
   }) {
@@ -76,7 +75,7 @@ export default class Glyph {
 
     // this.scale = 0.002125;
     this.scale = 1.0;
-    this.total = this.caption.replace(/(\r\n|\n|\r)/gm, "").length - 1;
+    this.total = this.geometry.total;
 
     this.interpolate = {
       x: 0
@@ -85,10 +84,10 @@ export default class Glyph {
     this.mdsf = {
       transparent: true,
       uniforms: {
-        vAlpha: new Uniform(alpha),
         opacity: new Uniform(1.0),
         time: new Uniform(0.0),
         stagger: new Uniform(0.0),
+        direction: new Uniform(0.0),
         duration: new Uniform(1.0),
         map: new Uniform(textures[weight]),
         color: { type: "c", value: new Color(color) },
@@ -123,7 +122,7 @@ export default class Glyph {
     this.geometry.update({
       text
     });
-    this.total = this.caption.replace(/(\r\n|\n|\r)/gm, "").length - 1;
+    this.total = this.geometry.total;
     this.material.uniforms.total.value = this.total;
     this.handleResize(settings.sizes);
     
